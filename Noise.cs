@@ -6,6 +6,7 @@ namespace MELPeModem
 {
     class Noise
     {
+        // We use Crypto library noise generation
         System.Security.Cryptography.RNGCryptoServiceProvider NoiseGen;
         float Amplitude;
         byte[] RandomNoiseBytes;
