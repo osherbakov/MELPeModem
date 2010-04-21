@@ -66,7 +66,7 @@ namespace MELPeModem
         public void Add(byte[] addBits, int startingIndex, int numBits)
         {
             int NumBits = (numBits / this.SymbolSize) * this.SymbolSize;
-            for (int i = 0; i < numBits; i++)
+            for (int i = 0; i < NumBits; i++)
                 BitStorage.Add(addBits[startingIndex++]);
         }
 
