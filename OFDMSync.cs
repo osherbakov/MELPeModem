@@ -19,7 +19,6 @@ namespace MELPeModem
         int PutIndex;
         int SlicingIndex;
         int PreviousSlicingIndex;
-        bool SkipSample;
         
         IQ[] DataBuffer;
         float []CorrBuffer;
@@ -61,7 +60,6 @@ namespace MELPeModem
         {
             PutIndex = 0;
             SNRValue = 1.0f;
-            SkipSample = false;
             DataSize = 2 * BlockSize + CPSize;
             DataBuffer = new IQ[DataSize];
 

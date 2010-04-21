@@ -53,7 +53,7 @@ namespace MELPeModem
             Half = BlockSize / 2;
             if ((int)(BlockSize * symbolRate + 0.5f) != (int)processingRate)
             {
-                throw new ApplicationException("The processingRate must be integer multiple of symbolRate");
+                throw new ArgumentException("The processingRate must be integer multiple of symbolRate");
             }
 
             gI = new Generator[NFREQ];
@@ -103,7 +103,7 @@ namespace MELPeModem
             BlockSize = (int)(processingRate / symbolRate);
             if ((int)(BlockSize * symbolRate + 0.5f) != (int)processingRate)
             {
-                throw new ApplicationException("The processingRate must be integer multiple of symbolRate");
+                throw new ArgumentException("The processingRate must be integer multiple of symbolRate");
             }
             gI = new Generator[NFREQ];
             gQ = new Generator[NFREQ];

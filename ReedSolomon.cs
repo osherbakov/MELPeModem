@@ -5,9 +5,9 @@ using System.Text;
 namespace MELPeModem
 {
     /* Stuff common to all the general-purpose Reed-Solomon codecs
- * Copyright 2004 Phil Karn, KA9Q
- * May be used under the terms of the GNU Lesser General Public License (LGPL)
- */
+    * Copyright 2004 Phil Karn, KA9Q
+    * May be used under the terms of the GNU Lesser General Public License (LGPL)
+    */
     /* The guts of the Reed-Solomon encoder, meant to be #included
      * into a function body with the following typedefs, macros and variables supplied
      * according to the code parameters:
