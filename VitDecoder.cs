@@ -20,7 +20,7 @@ namespace MELPeModem
         int highbit;    // Position of the high bit in the memory
 
         int PunctureMask;   // Current puncture mask - bits are tested starting from LSB. "1" in bit position - output bit, 
-        // "0" in bit position - do not output 
+                            // "0" in bit position - do not output 
         int PunctureSize;   // Total number of bits that are used in defining puncturing - how many bits are used
         int PuncturePass;   // Number of bits from "PunctureSize" to output. The puncture rate is = PuncturePass/PunctureSize.
 
