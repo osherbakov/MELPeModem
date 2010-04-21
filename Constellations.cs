@@ -48,25 +48,6 @@ namespace MELPeModem
 
         public static int[] Table_1_to_1 = new int[64];
 
-        public static IQ Q0 = new IQ(1, 0);
-        public static IQ Q1 = new IQ(SQR2_2, SQR2_2);
-        public static IQ Q2 = new IQ(0, 1);
-        public static IQ Q3 = new IQ(-SQR2_2, SQR2_2);
-        public static IQ Q4 = new IQ(-1, 0);
-        public static IQ Q5 = new IQ(-SQR2_2, -SQR2_2);
-        public static IQ Q6 = new IQ(0, -1);
-        public static IQ Q7 = new IQ(SQR2_2, -SQR2_2);
-
-        public static IQ[] R0 = { Q1, Q3, Q5, Q7};
-        public static IQ[] R1 = { Q2, Q4, Q6, Q0 };
-        public static IQ[] R2 = { Q3, Q5, Q7, Q1 };
-        public static IQ[] R3 = { Q4, Q6, Q0, Q2 };
-        public static IQ[] R4 = { Q5, Q7, Q1, Q3 };
-        public static IQ[] R5 = { Q6, Q0, Q2, Q4 };
-        public static IQ[] R6 = { Q7, Q1, Q3, Q5 };
-        public static IQ[] R7 = { Q0, Q2, Q4, Q6 };
-
-        public static IQ[] Rotate_39 = { Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q0}; // Rotate constellation 45 degrees on every step
         public static int[] BitsToPhase_39 = { 1, 2, 0, 3 };
 
 
