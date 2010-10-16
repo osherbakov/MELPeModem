@@ -17,7 +17,7 @@ namespace MELPeModem
         int DataSize;
 
         int PutIndex;
-        int SlicingIndex;
+        int SlicingIndex = 0;
         int PreviousSlicingIndex;
         
         IQ[] DataBuffer;

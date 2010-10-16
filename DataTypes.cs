@@ -18,8 +18,8 @@ namespace MELPeModem
         public IQ(float valueI, float valueQ) { I = valueI; Q = valueQ; }
         public float I, Q;
 
-        public static IQ ZERO = new IQ();
-        public static IQ UNITY = new IQ(0);
+        public static IQ ZERO = new IQ(0, 0);
+        public static IQ UNITY = new IQ(1, 0);
         public static IQ DEG45 = new IQ((float)Math.PI/4);
 
         public float R2

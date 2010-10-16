@@ -56,7 +56,7 @@ namespace MELPeModem
         {
             if (convRate > MAX_RATE)
             {
-                throw new ApplicationException( string.Format("The rate cannot be more than : {0}", MAX_RATE));
+                throw new ArgumentException( string.Format("The rate cannot be more than : {0}", MAX_RATE));
             }
             this.Rate = convRate;
             this.MAXWORDCOUNT = BITSPERSYMBOL * this.Rate;

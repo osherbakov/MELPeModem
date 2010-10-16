@@ -4,7 +4,6 @@ using System.Text;
 
 namespace MELPeModem
 {
-
     class IQDemodulator : DataProcessingModule
     {
         InputPin<float> DataIn;
