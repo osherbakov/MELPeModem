@@ -1,10 +1,10 @@
 * text=auto !eol
 /BitDataTypes.cs -text
-/Constellations.cs -text
+/Constellation.cs -text
 /Correlator.cs -text
 /DataLink.cs -text
 /DataTypes.cs -text
-/EncodDecoder.cs -text
+/EncodeDecode.cs -text
 /FFT.cs -text
 /Generator.cs -text
 /LFSRegister.cs -text

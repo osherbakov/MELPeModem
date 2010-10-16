@@ -158,7 +158,7 @@ namespace MELPeModem
 
             void FillSyncPatterns()
             {
-                IQEncoder Enc = new IQEncoder(BITS_PER_SYMBOL, Constellations.Table_1_to_1, Constellations.ITable_8PSK, Constellations.QTable_8PSK, EncodingType.SCRAMBLE_ADD);
+                IQEncoder Enc = new IQEncoder(BITS_PER_SYMBOL, Constellation.Table_1_to_1, Constellation.ITable_8PSK, Constellation.QTable_8PSK, EncodingType.SCRAMBLE_ADD);
                 SyncScrambler scrambler = new SyncScrambler();
 
                 int SyncSymbolCounter = 0;
@@ -198,7 +198,7 @@ namespace MELPeModem
             {
                 SyncCorr = new Correlator(CORR_TYPE.DELTA_DIFF, 15 * 32, 9 * 32, 6 * 32, CorrTargetThreshold, CorrAverageThreshold, CorrEnergyThreshold);
                 Demodulator = new IQDemodulator(CARRIER_FREQ - 15, CARRIER_FREQ - 15, NUM_FREQ, ProcessingFrequency, SYMBOLRATE, SymbolFilterCoeffs);
-                ProbeEncoder = new IQEncoder(BITS_PER_SYMBOL, Constellations.Table_1_to_1, Constellations.ITable_8PSK, Constellations.QTable_8PSK, EncodingType.SCRAMBLE_ADD);
+                ProbeEncoder = new IQEncoder(BITS_PER_SYMBOL, Constellation.Table_1_to_1, Constellation.ITable_8PSK, Constellation.QTable_8PSK, EncodingType.SCRAMBLE_ADD);
                 SymbDetector = new SymbolDetector();
                 EOMDetector = new BitCorrelator();
                 FillSyncPatterns();
@@ -463,7 +463,7 @@ namespace MELPeModem
                 else
                     this.FECDecoder = new VitDecoder(ConvEncoderType.Truncate, FECEncoderRate * CurrentMode.RepeatDataBits, FECEncoderConstraint, FECEncoderPoly, -1, 8, 0);
                 this.ProbeCorr = new Correlator(CORR_TYPE.NONE, CurrentMode.ProbeDataSymbols, CurrentMode.ProbeDataSymbols, 0, 0, 0, 0);
-                this.Decoder = new IQDecoder(CurrentMode.BitsPerSymbol, CurrentMode.BitsToSymbolTable, Constellations.IQTable_8PSK, EncodingType.SCRAMBLE_ADD);
+                this.Decoder = new IQDecoder(CurrentMode.BitsPerSymbol, CurrentMode.BitsToSymbolTable, Constellation.IQTable_8PSK, EncodingType.SCRAMBLE_ADD);
                 this.Decoder.StartCorrectionProcess(CurrentMode.UnknownDataSymbols + CurrentMode.ProbeDataSymbols);
             }
 
@@ -701,7 +701,7 @@ namespace MELPeModem
                 else
                     this.FECEncoder = new ConvEncoder(ConvEncoderType.Truncate, FECEncoderRate * RepeatDataBits, FECEncoderConstraint, FECEncoderPoly, -1, 8);
 
-                this.Encoder = new IQEncoder(BITS_PER_SYMBOL, Constellations.Table_1_to_1, Constellations.IQTable_8PSK, EncodingType.SCRAMBLE_ADD);
+                this.Encoder = new IQEncoder(BITS_PER_SYMBOL, Constellation.Table_1_to_1, Constellation.IQTable_8PSK, EncodingType.SCRAMBLE_ADD);
                 this.Modulator = new IQModulator(CARRIER_FREQ, CARRIER_FREQ, NUM_FREQ, processingFreq, SYMBOLRATE, symbolFilter);
                 this.OutputBuff = new float[(int)(processingFreq / SYMBOLRATE)];
                 this.OutputFilter = new FIR(outputFilter, (int)(processingFreq / outputFreq));

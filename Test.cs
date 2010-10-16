@@ -224,10 +224,10 @@ namespace MELPeModem
             #region Test of Quad Modulators/Demodulators
             {
                 IQModulator tm = new IQModulator(1000, 1000, 1, 8000, 250, null);
-                IQEncoder te = new IQEncoder(2, Constellations.BitsToPhase_39, Constellations.IQTable_QPSK45, EncodingType.DIFF_IQ);
+                IQEncoder te = new IQEncoder(2, Constellation.BitsToPhase_39, Constellation.IQTable_QPSK45, EncodingType.DIFF_IQ);
 
                 OFDMDemodulator tt = new OFDMDemodulator(1000, 1000, 1, 8000, 250, 1);
-                IQDecoder td = new IQDecoder(2, Constellations.BitsToPhase_39, Constellations.IQTable_QPSK45, EncodingType.DIFF_IQ);
+                IQDecoder td = new IQDecoder(2, Constellation.BitsToPhase_39, Constellation.IQTable_QPSK45, EncodingType.DIFF_IQ);
 
                 int[] EncData = new int[] { 0, 1, 2, 3, 0, 0, 1, 1, 2, 2, 3, 3, 2, 1, 0 };
                 IQ IQData;
@@ -471,8 +471,8 @@ namespace MELPeModem
 
             int[] symb = { 0, 1, 2, 3, 4, 5, 6, 7, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 0, 3, 5, 7, 4, 3, 2, 1 };
 
-            IQEncoder e = new IQEncoder(2, Constellations.Table_1_to_1, Constellations.ITable_QPSK, Constellations.QTable_QPSK, EncodingType.NON_DIFF);
-            IQDecoder d = new IQDecoder(2, Constellations.Table_1_to_1, Constellations.ITable_QPSK, Constellations.QTable_QPSK, EncodingType.NON_DIFF);
+            IQEncoder e = new IQEncoder(2, Constellation.Table_1_to_1, Constellation.ITable_QPSK, Constellation.QTable_QPSK, EncodingType.NON_DIFF);
+            IQDecoder d = new IQDecoder(2, Constellation.Table_1_to_1, Constellation.ITable_QPSK, Constellation.QTable_QPSK, EncodingType.NON_DIFF);
 
             IQ iqs;
             int r;
@@ -506,8 +506,8 @@ namespace MELPeModem
             int DFac = (int)(SamplingFreq / SymbolFreq);
 
             // Let's start with the encoder and decoder
-            e = new IQEncoder(3, Constellations.Table_1_to_1, Constellations.IQTable_8PSK, EncodingType.NON_DIFF);
-            d = new IQDecoder(3, Constellations.Table_1_to_1, Constellations.IQTable_8PSK, EncodingType.NON_DIFF);
+            e = new IQEncoder(3, Constellation.Table_1_to_1, Constellation.IQTable_8PSK, EncodingType.NON_DIFF);
+            d = new IQDecoder(3, Constellation.Table_1_to_1, Constellation.IQTable_8PSK, EncodingType.NON_DIFF);
 
             // Create Modulator
             IQModulator mod = new IQModulator(CarrierFreq + FreqOffset, CarrierFreq + FreqOffset, 1, SamplingFreq, SymbolFreq, fCoeff);
@@ -621,8 +621,8 @@ namespace MELPeModem
                 int DFac1 = (int)(SamplingFreq1 / SymbolFreq1);
 
                 // Let's start with the encoder and decoder
-                e = new IQEncoder(3, Constellations.Table_1_to_1, Constellations.IQTable_8PSK, EncodingType.NON_DIFF);
-                d = new IQDecoder(3, Constellations.Table_1_to_1, Constellations.IQTable_8PSK, EncodingType.NON_DIFF);
+                e = new IQEncoder(3, Constellation.Table_1_to_1, Constellation.IQTable_8PSK, EncodingType.NON_DIFF);
+                d = new IQDecoder(3, Constellation.Table_1_to_1, Constellation.IQTable_8PSK, EncodingType.NON_DIFF);
 
                 // Create Modulator
                 IQModulator mod1 = new IQModulator(CarrierFreq1 + FreqOffset1, CarrierFreq1 + FreqOffset1, 1, SamplingFreq1, SymbolFreq1, null);

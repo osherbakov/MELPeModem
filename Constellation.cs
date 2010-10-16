@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MELPeModem
 {
-    class Constellations
+    class Constellation
     {
         public static int[] Bits_Simple_BPSK = { 0, 1 };
         public static IQ[] IQ_Simple_BPSK = new IQ[] {IQ.UNITY, -IQ.UNITY};
@@ -51,7 +51,7 @@ namespace MELPeModem
         public static int[] BitsToPhase_39 = { 1, 2, 0, 3 };
 
 
-        static Constellations()
+        static Constellation()
         {
             for (int i = 0; i < 64; i++)
                 Table_1_to_1[i] = i; 

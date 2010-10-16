@@ -67,11 +67,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BitDataTypes.cs" />
-    <Compile Include="Constellations.cs" />
+    <Compile Include="Constellation.cs" />
     <Compile Include="Correlator.cs" />
     <Compile Include="DataLink.cs" />
     <Compile Include="DataTypes.cs" />
-    <Compile Include="EncodDecoder.cs" />
+    <Compile Include="EncodeDecode.cs" />
     <Compile Include="FFT.cs" />
     <Compile Include="Generator.cs" />
     <Compile Include="LFSRegister.cs" />

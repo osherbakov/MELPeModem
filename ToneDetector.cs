@@ -323,7 +323,7 @@ namespace MELPeModem
             IQGenerator = new Quad(CarrierFrequency, SamplingFreq, InitialPhase);
             SYNC_TYPE st = DoTimingCorrection ? SYNC_TYPE.GARDNER_DD | SYNC_TYPE.MUELLER_NDA | SYNC_TYPE.QAMLD_NDA | SYNC_TYPE.ZERODET_NDA : SYNC_TYPE.NONE;
             IQDemodulator = new IntegrateAndDump(st, BlockSize, BlockSize);
-            IQDecoder = new IQDecoder(1, Constellations.Bits_Simple_BPSK, Constellations.IQ_Simple_BPSK, EncodingType.NON_DIFF);
+            IQDecoder = new IQDecoder(1, Constellation.Bits_Simple_BPSK, Constellation.IQ_Simple_BPSK, EncodingType.NON_DIFF);
 
             FreqAdj = 0;
             CorrRotate = IQ.UNITY;
@@ -382,7 +382,7 @@ namespace MELPeModem
                     if (FirstSymbol)
                     {
                         FirstSymbol = false;
-                        Target = Constellations.IQ_Simple_BPSK[Constellations.Bits_Simple_BPSK[InitialValue]];
+                        Target = Constellation.IQ_Simple_BPSK[Constellation.Bits_Simple_BPSK[InitialValue]];
                         Diff = Target / Data;
                         this.CorrRotate = Diff / Data.R2;
                         IQDecoder.StartCorrectionProcess(SymbolsToDetectCorrection);
@@ -416,7 +416,7 @@ namespace MELPeModem
                         if (FirstSymbol)
                         {
                             FirstSymbol = false;
-                            Target = Constellations.IQ_Simple_BPSK[Constellations.Bits_Simple_BPSK[InitialValue]];
+                            Target = Constellation.IQ_Simple_BPSK[Constellation.Bits_Simple_BPSK[InitialValue]];
                             Diff = Target / Data;
                             this.CorrRotate = Diff / Data.R2;
                             IQDecoder.StartCorrectionProcess(SymbolsToDetectCorrection);

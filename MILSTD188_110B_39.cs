@@ -464,7 +464,7 @@ namespace MELPeModem
 
                     for (int i = 0; i < NUMTONES3; i++)
                     {
-                        OFDMDecoders[i] = new IQDecoder(BITS_PER_SYMBOL, Constellations.BitsToPhase_39, Constellations.IQTable_QPSK45,
+                        OFDMDecoders[i] = new IQDecoder(BITS_PER_SYMBOL, Constellation.BitsToPhase_39, Constellation.IQTable_QPSK45,
                                         EncodingType.DIFF_IQ);
                     }
                     Init(0);   
@@ -666,7 +666,7 @@ namespace MELPeModem
 
                 this.Encoder = new IQEncoder[NUM_FREQ];
                 for(int i = 0; i < NUM_FREQ; i++)
-                    Encoder[i] = new IQEncoder(BITS_PER_SYMBOL, Constellations.BitsToPhase_39, Constellations.IQTable_QPSK45, 
+                    Encoder[i] = new IQEncoder(BITS_PER_SYMBOL, Constellation.BitsToPhase_39, Constellation.IQTable_QPSK45, 
                                         EncodingType.DIFF_IQ);
 
                 this.Modulator = new OFDMFFTModulator(CARRIER_FREQ_LO, CARRIER_FREQ_HI, NUM_FREQ, processingFreq, SYMBOLRATE);
