@@ -6,7 +6,7 @@ namespace MELPeModem
 {
     public enum ConvEncoderType
     {
-        Truncate,           // The encoder does not terminate the stram and does not force into a specific state
+        Truncate,           // The encoder does not terminate the stream and does not force into a specific state
         ZeroState,          // The encoder/decoder that starts and ends with zero state
         TailBiting_Head,     // Tailbiting encoder/decoder - the start and end states are the same - load with the head.
         TailBiting_Tail,     // Tailbiting encoder/decoder - the start and end states are the same - load with the tail.

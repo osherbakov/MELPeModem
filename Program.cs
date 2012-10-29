@@ -43,8 +43,8 @@ namespace MELPeModem
             int TxBits = TXSymbols.GetData(TxData);
 
 
-            string outputFile = @"D:\test.raw";
-            string inputFile = @"D:\test.raw";
+            string outputFile = @"C:\test.raw";
+            string inputFile = @"C:\test.raw";
 
             // Send datastream thru the modem - the output of the modem will be arrray of int datasymbols
             Samples outputSamples = new Samples(outputFile, 0.1f);

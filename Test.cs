@@ -240,7 +240,7 @@ namespace MELPeModem
                     tm.Process(IQData);
                 }
 
-                Samples outputTestSamples = new Samples(@"D:\TestMod.raw", 1.0f);
+                Samples outputTestSamples = new Samples(@"C:\TestMod.raw", 1.0f);
                 float[] TestSamplesOut = new float[tm.Count];
                 tm.GetData(TestSamplesOut);
                 outputTestSamples.ToByte(TestSamplesOut);
@@ -305,13 +305,13 @@ namespace MELPeModem
             m.Tx.Process(da, 0, da.Length);
             m.Tx.Finish();
 
-            Samples outputSamples = new Samples(@"D:\test39.raw", 1.5f);
+            Samples outputSamples = new Samples(@"C:\test39.raw", 1.5f);
             float[] SamplesOut = new float[m.Tx.SampleCount];
             m.Tx.GetData(SamplesOut, 0);
             outputSamples.ToByte(SamplesOut);
             outputSamples.Close();
 
-            string FileName = @"D:\test39";
+            string FileName = @"C:\test39";
 
             Samples InputSamples = new Samples(FileName + ".raw");
             float[] SamplesIn = new float[100];
