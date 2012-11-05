@@ -10,6 +10,14 @@ namespace MELPeModem
         InputPin<byte> DataIn;
         OutputPin<byte> DataOut;
 
+        const int BITSPERSYMBOL = 8;
+        const int SYMBOLBITMASK = (1 << BITSPERSYMBOL) - 1;
+        const int MAX_RATE = 32 / BITSPERSYMBOL;
+        const int FULL_0 = 0x00;  // 100% sure that is 0
+        const int FULL_1 = (1 << BITSPERSYMBOL) - 1;  // 100% sure that is 1
+        const int ERASURE_0 = FULL_1 / 2; // can be 0 or 1, 50/50 chance
+        const int ERASURE_1 = ERASURE_0 + 1; // can be 0 or 1, 50/50 chance
+
         int BACKTRACKDEPTH;
         int MAXWORDCOUNT;
 
@@ -110,13 +118,7 @@ namespace MELPeModem
             Init();
         }
 
-        const int FULL_0 = 0x00;  // 100% sure that is 0
-        const int FULL_1 = 0x0F;  // 100% sure that is 1
-        const int ERASURE_0 = 0x07; // can be 0 or 1, 50/50 chance
-        const int ERASURE_1 = 0x08; // can be 0 or 1, 50/50 chance
 
-        const int BITSPERSYMBOL = 4;
-        const int MAX_RATE = 8;
 
         void DepunctureInit()
         {
@@ -290,8 +292,8 @@ namespace MELPeModem
             // 0x07, 0x08    -  Unknown or ERASURE
             for (int i = 0; i < this.Rate; i++)
             {
-                int BitSoftValue1 = inputWord & 0x000F;
-                int BitSoftValue0 = 0x000F - BitSoftValue1;
+                int BitSoftValue1 = inputWord & SYMBOLBITMASK;
+                int BitSoftValue0 = FULL_1 - BitSoftValue1;
                 // The quantized value is the error distance from the "0" value
                 // We can use maximum likelihood algorithm, i.e. we are minimizing the error distance.
                 //  It real life, we deal with probabilities, so technically we have to maximize
