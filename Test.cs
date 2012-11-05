@@ -267,16 +267,17 @@ namespace MELPeModem
                 BitArray sba = new BitArray(8);
                 sba.Add(input);
 
-                ConvEncoder sce = new ConvEncoder(ConvEncoderType.ZeroState, 2, 7, PolyMIL, 0x7, 4);
+                ConvEncoder sce = new ConvEncoder(ConvEncoderType.TailBiting_Head, 2, 7, PolyMIL, 0x7, 4);
 
                 byte[] ddd = new byte[sba.BitsCount];
                 sba.GetData(ddd);
                 sce.Process(ddd, 0, ddd.Length);
                 sce.Finish();
-
-                VitDecoder svd = new VitDecoder(ConvEncoderType.ZeroState, 2, 7, PolyMIL, 0x7, 4, 3);
                 ddd = new byte[sce.Count];
                 sce.GetData(ddd);
+                // ddd has all databits
+
+                VitDecoder svd = new VitDecoder(ConvEncoderType.TailBiting_Head, 2, 7, PolyMIL, 0x7, 4, 3);
                 svd.Process(ddd, 0, ddd.Length);
                 svd.Finish();
 
